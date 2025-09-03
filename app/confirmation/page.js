@@ -312,20 +312,6 @@ export default function Confirmation() {
               </p>
             </motion.div>
 
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.1 }}
-              className="mt-4 p-4 bg-blue-500/20 rounded-xl border border-blue-400/30"
-            >
-              <h4 className="font-semibold text-blue-300 mb-3">Important Notes</h4>
-              <ul className="text-sm text-blue-200 space-y-2">
-                <li>• Please arrive 15 minutes before your appointment</li>
-                <li>• Bring a valid ID and insurance card</li>
-                <li>• Fasting may be required for some tests</li>
-                <li>• Results will be available within 24-48 hours</li>
-              </ul>
-            </motion.div>
           </motion.div>
         </div>
       </div>
