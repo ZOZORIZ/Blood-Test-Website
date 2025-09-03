@@ -202,7 +202,7 @@ export default function Confirmation() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 }}
                 >
-                  <label className="block text-sm font-medium text-gray-300 mb-3">Patient Arrival Time *</label>
+                  <label className="block text-sm font-medium text-gray-300 mb-3">Patient Arrival Date *</label>
                   <input
                     type="date"
                     required

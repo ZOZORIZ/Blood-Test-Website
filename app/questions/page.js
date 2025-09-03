@@ -6,12 +6,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Questions() {
 const questions=[
-    {id:1 , question: 'Are you in a fasting state for this test?'},
-    {id:2 , question: 'When did u have your last meal' },
-    {id:3 , question: 'Do you have diabetes or any other major medical conditions?' },
-    {id:4 , question: 'Are you taking any blood-thinning medications (eg: Warfarin, Aspirin' },
-    {id:5 , question: 'Do you have any other allergies to drugs or materials (e.g., latex, iodine)?' },
-    {id:6 , question: '​Have you had a mastectomy or are you experiencing lymphedema (swelling) in either arm?'}
+    {id:1 , question: 'Are you in a fasting state for this test?' , type:'yes-no'},
+    {id:2 , question: 'When did u have your last meal?', type:'text'},
+    {id:3 , question: 'Do you have diabetes or any other major medical conditions?' , type:'yes-no'},
+    {id:4 , question: 'Are you taking any blood-thinning medications (eg: Warfarin, Aspirin', type:'yes-no' },
+    {id:5 , question: 'Do you have any other allergies to drugs or materials (e.g., latex, iodine)?' , type:'yes-no'},
+    {id:6 , question: '​Have you had a mastectomy or are you experiencing lymphedema (swelling) in either arm?', type:'yes-no'}
 ];
 
 const [answer,setAnswer] = useState({});
@@ -22,10 +22,10 @@ const handleHome = () => {
   router.push('/');
 };
 
-const handleAnswerChange = (questionId, answer) => {
+const handleAnswerChange = (questionId, value) => {
   setAnswer(prevAnswers => ({
     ...prevAnswers,
-    [questionId]: answer
+    [questionId]: value
   }));
 
 }
@@ -52,7 +52,9 @@ return(
           <p className='text-2xl'>
             {index+1}. {question.question}
           </p>
-          <div className='flex justify-center gap-20 mt-5 mb-5'>
+
+          {question.type === 'yes-no' && (
+          <div className='flex justify-center items-center gap-20 mt-5 mb-5'>
           <label className='flex items-center cursor-pointer text-lg'>
             <input type='radio' name={`question-${question.id}`}
              value="yes" 
@@ -72,6 +74,17 @@ return(
 
           </label>
           </div>
+          )}
+
+          {question.type === 'text' && (
+            <div className='flex justify-center'>
+              <input
+              type='time'
+              value={answer[questions.id]}
+              onChange={(e) => handleAnswerChange(question.id,e.target.value)}
+              className='w-40 cursor-pointer text-xl mt-5 mb-5 px-5 p-2 border-2 border-black rounded-full'/>
+            </div>
+          )}
         </div>
         ))}
         </form>

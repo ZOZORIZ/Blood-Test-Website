@@ -185,7 +185,6 @@ export default function Bill() {
                 <h3 className="font-semibold text-gray-800 mb-3">Bill Details:</h3>
                 <p className="text-gray-700">Bill Number: <span className="font-semibold text-gray-800">{bill.billNumber}</span></p>
                 <p className="text-gray-700">Date: <span className="font-semibold text-gray-800">{new Date(bill.generatedAt).toLocaleDateString()}</span></p>
-                <p className="text-gray-700">Appointment: <span className="font-semibold text-gray-800">{bill.appointmentDate} at {bill.appointmentTime}</span></p>
               </motion.div>
             </div>
           </div>
